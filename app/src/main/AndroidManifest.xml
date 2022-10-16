@@ -13,15 +13,16 @@
         android:theme="@style/Theme.WebThingClient"
         tools:targetApi="31">
         <activity
-            android:name=".LoginActivity"
+            android:name=".MainActivity"
             android:exported="false"
-            android:theme="@style/Theme.Material3.DayNight.NoActionBar">
+            android:theme="@style/Theme.Material3.DayNight.NoActionBar" >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".LoginActivity"
+            android:theme="@style/Theme.Material3.DayNight.NoActionBar"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
