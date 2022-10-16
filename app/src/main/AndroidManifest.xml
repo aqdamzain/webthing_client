@@ -15,9 +15,23 @@
         android:theme="@style/Theme.WebThingClient"
         tools:targetApi="31">
         <activity
-            android:name=".RegisterActivity"
-            android:theme="@style/Theme.Material3.DayNight.NoActionBar"
+            android:name=".AddDeviceActivity"
             android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".DashboardActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Material3.DayNight.NoActionBar">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
