@@ -15,5 +15,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        String userToken = getIntent().getStringExtra("USER_TOKEN");
+        if(userToken!=null){
+            binding.tvMain.setText(userToken);
+        }
     }
 }

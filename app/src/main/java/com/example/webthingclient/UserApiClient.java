@@ -15,7 +15,7 @@ public class UserApiClient {
                 .build();
 
         return new Retrofit.Builder()
-                .baseUrl("http://192.166.69.139")
+                .baseUrl("http://192.166.69.139:8080")
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
                 .build();

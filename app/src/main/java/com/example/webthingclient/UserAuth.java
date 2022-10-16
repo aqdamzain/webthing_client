@@ -4,6 +4,11 @@ import com.google.gson.annotations.SerializedName;
 
 public class UserAuth{
 
+	public UserAuth(String username, String password) {
+		this.password = password;
+		this.username = username;
+	}
+
 	@SerializedName("password")
 	private String password;
 
