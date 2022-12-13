@@ -1,30 +1,48 @@
-package com.example.webthingclient;
+package com.example.webthingclient.view;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 
-import com.example.webthingclient.databinding.ActivityRegisterBinding;
+import com.example.webthingclient.UserApiClient;
+import com.example.webthingclient.UserApiService;
+import com.example.webthingclient.UserAuth;
+import com.example.webthingclient.JwtToken;
+import com.example.webthingclient.databinding.ActivityLoginBinding;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class RegisterActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
-    private ActivityRegisterBinding binding;
+    private ActivityLoginBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityRegisterBinding.inflate(getLayoutInflater());
+        binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        binding.buttonSkip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(LoginActivity.this, DashboardActivity.class));
+            }
+        });
+
         binding.buttonRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
+            }
+        });
+
+
+        binding.buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String inputUsername = binding.tfUsername.getEditText().getText().toString();
@@ -41,27 +59,27 @@ public class RegisterActivity extends AppCompatActivity {
                 }
 
                 if(!isEmptyFields){
-                    startRegistration(new UserAuth(inputUsername, inputPassword));
+                    startLogin(new UserAuth(inputUsername, inputPassword));
                 }
 
             }
         });
     }
 
-    private void startRegistration( UserAuth userAuth){
+    private void startLogin(UserAuth userAuth) {
         UserApiService apiService = UserApiClient.getClient().create(UserApiService.class);
 
-        Call<UserToken> call = apiService.register(userAuth);
-        call.enqueue(new Callback<UserToken>() {
+        Call<JwtToken> call = apiService.login(userAuth);
+        call.enqueue(new Callback<JwtToken>() {
             @Override
-            public void onResponse(Call<UserToken> call, Response<UserToken> response) {
-                Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+            public void onResponse(Call<JwtToken> call, Response<JwtToken> response) {
+                Intent intent = new Intent(LoginActivity.this, DashboardActivity.class);
                 intent.putExtra("USER_TOKEN", response.body().getToken());
                 startActivity(intent);
             }
 
             @Override
-            public void onFailure(Call<UserToken> call, Throwable t) {
+            public void onFailure(Call<JwtToken> call, Throwable t) {
 
             }
         });

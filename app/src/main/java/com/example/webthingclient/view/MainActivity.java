@@ -1,4 +1,4 @@
-package com.example.webthingclient;
+package com.example.webthingclient.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 

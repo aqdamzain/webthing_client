@@ -4,4 +4,24 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="tab_text_1">Search</string>
     <string name="tab_text_2">Available GW</string>
+
+
+    <string name="things_name">Nama Perangkat</string>
+    <string name="description">Deskripsi</string>
+    <string-array name="data_name">
+        <item>DC Fan</item>
+        <item>DC Lamp</item>
+        <item>Weather Sensor</item>
+    </string-array>
+    <string-array name="data_description">
+        <item>Sakelar On/Off</item>
+        <item>Sakelar On/Off</item>
+        <item>Sensor suhu dan kelembapan</item>
+    </string-array>
+    <integer-array name="data_photo">
+        <item>@drawable/fan_img</item>
+        <item>@drawable/lamp_img</item>
+        <item>@drawable/temp_img</item>
+    </integer-array>
+
 </resources>

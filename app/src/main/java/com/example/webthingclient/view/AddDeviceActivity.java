@@ -1,4 +1,4 @@
-package com.example.webthingclient;
+package com.example.webthingclient.view;
 
 import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
@@ -6,7 +6,9 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
 
+import com.example.webthingclient.R;
 import com.example.webthingclient.databinding.ActivityAddDeviceBinding;
+import com.example.webthingclient.view.adapter.SectionsPagerAdapter;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
